@@ -2,7 +2,7 @@ import SelectType from "../components/Select";
 
 export function Register() {
     return (
-        <section className="bg-slate-600/20 backdrop-blur-sm w-3/12 h-3/5 my-12 mx-auto p-5 text-center rounded-xl">
+        <section className="bg-slate-600/20 backdrop-blur-sm w-3/12 h-3/5 mx-auto p-5 text-center rounded-xl">
             <h2 className="text-3xl uppercase font-bold text-slate-50">cadastro</h2>
             <div className="text-center mt-12">
                 <form>

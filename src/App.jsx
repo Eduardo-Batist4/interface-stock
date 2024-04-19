@@ -4,7 +4,7 @@ import Button from "./components/Button"
 function App() {
   return (
     <main className="bg-zinc-900 w-full h-screen">
-      <header className=" 2-full h-24 flex justify-around items-center">
+      <header className="w-full h-24 flex justify-around items-center mb-20">
           <Link>
             <h2 className="text-4xl text-slate-50 font-bold uppercase">stock</h2>
           </Link>
