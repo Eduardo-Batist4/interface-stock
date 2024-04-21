@@ -35,9 +35,9 @@ export function Register() {
     }
 
     return (
-        <section className="bg-slate-600/20 backdrop-blur-sm w-3/12 h-3/5 mx-auto p-5 text-center rounded-xl">
+        <section className="bg-slate-600/20 backdrop-blur-sm w-3/12 h-auto mx-auto p-5 text-center rounded-xl">
             <h2 className="text-3xl uppercase font-bold text-slate-50">cadastro</h2>
-            <div className="text-center mt-12">
+            <div className="text-center mt-10">
                 <form onSubmit={handleClick}>   
                     <div className="text-left space-y-3 mb-5">
                         <label htmlFor="name"className="text-xl uppercase font-medium text-slate-50">nome</label>
@@ -47,7 +47,6 @@ export function Register() {
                         onChange={(ev) => setNameProduct(ev.target.value)}
                         />                        
                     </div>
-                    <SelectType selectOption={typeSelect} setSelectOption={setTypeSelect} />
                     <div className="text-left space-y-3">
                         <label htmlFor="quantity" className="text-xl uppercase font-medium text-slate-50">quantidade</label>
                         <input type="number" name="quantity" 
