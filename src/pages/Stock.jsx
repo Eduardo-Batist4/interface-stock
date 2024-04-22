@@ -21,9 +21,13 @@ export function Stock() {
         fetchingData();
       }, []);
 
-      function balance (a, b) {
+    function balance (a, b) {
         return a - b;
-      }
+    }
+
+    function situationProduct (a, b) {
+        return a - b <= 2 ? "comprar" : "ok";
+    }
 
     return (
         <section className="w-3/5 p-4 m-auto h-auto">
@@ -45,7 +49,7 @@ export function Stock() {
                             <td className="w-32 py-4 text-center">{prod.input}</td>
                             <td className="w-32 py-4 text-center">{prod.output}</td>
                             <td className="w-32 py-4 text-center">{balance(prod.input, prod.output)}</td>
-                            <td className="w-32 py-4 text-center">{prod.name}</td>
+                            <td className="w-32 py-4 text-center">{situationProduct(prod.input, prod.output)}</td>
                             <td className="w-32 py-4 text-center">0</td>
                         </tr>       
                     ))}
