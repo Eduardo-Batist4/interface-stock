@@ -1,21 +1,14 @@
 import { useState } from "react";
-import SelectType from "../components/Select";
 
 export function Register() {
     const [ nameProduct, setNameProduct ] = useState("");
-    const [ typeSelect, setTypeSelect ] = useState("");
     const [ quantity, setQuatity ] = useState(0);  
 
-
-    // Calcular os valores com base na condição de typeSelect
-    let inputQuantity = typeSelect === "input" ? quantity : 0;
-    let outputQuantity = typeSelect === "output" ? quantity : 0;
-        
     // Criar o objeto com os valores calculados
     let data = {
         "name": nameProduct,
-        "input": inputQuantity,
-        "output": outputQuantity
+        "input": quantity,
+        "output": 0
     };
 
     function handleClick(ev) {
@@ -30,9 +23,8 @@ export function Register() {
         }).then(response => response.json()).catch(error => console.error(error))
 
         setNameProduct("");
-        setTypeSelect("");
         setQuatity("");
-    }
+    }   
 
     return (
         <section className="bg-slate-600/20 backdrop-blur-sm w-3/12 h-auto mx-auto p-5 text-center rounded-xl">
