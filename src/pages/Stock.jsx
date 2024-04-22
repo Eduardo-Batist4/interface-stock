@@ -1,4 +1,30 @@
+import { useEffect, useState } from "react"
+
 export function Stock() {
+    const [ products, setProducts ] = useState([]);
+
+    useEffect(() => {
+        const fetchingData = async () => {
+          try {
+            const response = await fetch("http://localhost:3001/products");
+            if (!response.ok) {
+              throw new Error('Erro ao fazer a requisição.');
+            }
+            const data = await response.json();
+            console.log(data);
+            setProducts(data);
+          } catch (error) {
+            console.error('Erro:', error);
+          }
+        };
+      
+        fetchingData();
+      }, []);
+
+      function balance (a, b) {
+        return a - b;
+      }
+
     return (
         <section className="w-3/5 p-4 m-auto h-auto">
             <table className="table-auto w-full">
@@ -12,15 +38,17 @@ export function Stock() {
                         <th className="py-4 text-center border-solid border-x-2 border-slate-50">situação</th>
                         <th className="py-4 text-center border-solid border-x-2 border-slate-50">alarme</th>
                     </tr>
-                    <tr className="text-slate-50 border-solid border-y-2 border-slate-50/5">
-                        <td className="w-10 py-4 text-center">1</td>
-                        <td className="w-64 py-4 pl-2">camiseta</td>
-                        <td className="w-32 py-4 text-center">10</td>
-                        <td className="w-32 py-4 text-center">3</td>
-                        <td className="w-32 py-4 text-center">7</td>
-                        <td className="w-32 py-4 text-center">comprar</td>
-                        <td className="w-32 py-4 text-center">0</td>
-                    </tr>
+                    {products.map((prod) => (
+                        <tr key={prod.id} className="text-slate-50 border-solid border-y-2 border-slate-50/5">
+                            <td className="w-10 py-4 text-center">{prod.id}</td>
+                            <td className="w-64 py-4 pl-2">{prod.name}</td>
+                            <td className="w-32 py-4 text-center">{prod.input}</td>
+                            <td className="w-32 py-4 text-center">{prod.output}</td>
+                            <td className="w-32 py-4 text-center">{balance(prod.input, prod.output)}</td>
+                            <td className="w-32 py-4 text-center">{prod.name}</td>
+                            <td className="w-32 py-4 text-center">0</td>
+                        </tr>       
+                    ))}
                 </tbody>
             </table>
         </section>
