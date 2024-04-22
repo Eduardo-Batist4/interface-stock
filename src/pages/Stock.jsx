@@ -44,7 +44,7 @@ export function Stock() {
                     </tr>
                     {products.map((prod) => (
                         <tr key={prod.id} className="text-slate-50 border-solid border-y-2 border-slate-50/5">
-                            <td className="w-10 py-4 text-center">{prod.id}</td>
+                            <td className="w-10 py-4 text-center text-lime-500">{prod.id}</td>
                             <td className="w-64 py-4 pl-2">{prod.name}</td>
                             <td className="w-32 py-4 text-center">{prod.input}</td>
                             <td className="w-32 py-4 text-center">{prod.output}</td>

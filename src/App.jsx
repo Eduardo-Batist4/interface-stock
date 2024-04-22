@@ -10,6 +10,7 @@ function App() {
           </Link>
           <div className="space-x-7">
             <Button text="cadastro" link="/register" />
+            <Button text="entrada" link="/input" />
             <Button text="saida" link="/output" />
             <Button text="estoque" link="/stock" />
           </div>
