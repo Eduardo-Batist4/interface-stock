@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 // icons
 import { FaRegTrashAlt } from "react-icons/fa";
+import { FaCircle } from "react-icons/fa6";
 
 export function Stock() {
     const [ products, setProducts ] = useState([]);
@@ -63,16 +64,16 @@ export function Stock() {
                     </tr>   
                     {products.map((prod) => (
                         <tr key={prod.id} className="text-slate-50 border-solid border-y-2 border-slate-50/5">
-                            <td className="w-20 py-4 text-center text-lime-500">{prod.id}</td>
+                            <td className="w-20 py-4 text-center text-blue-600">{prod.id}</td>
                             <td className="w-64 py-4 pl-2">{prod.name}</td>
                             <td className="w-32 py-4 text-center">{prod.input}</td>
                             <td className="w-32 py-4 text-center">{prod.output}</td>
                             <td className="w-32 py-4 text-center">{balance(prod.input, prod.output)}</td>
                             <td className="w-32 py-4 text-center">{situationProduct(prod.input, prod.output)}</td>
-                            <td className="w-32 py-4 text-center">0</td>
+                            <td className={`w-32 py-4 ${situationProduct(prod.input, prod.output) == "comprar" ? "text-red-700" : "text-lime-500"}`}><FaCircle className="m-auto" /></td>
                             <td>
-                                <button className="w-full py-5  text-center" onClick={() => handleClickDelete(prod.id)}>
-                                    <FaRegTrashAlt className="m-auto text-red-700" />
+                                <button className="w-full py-5" onClick={() => handleClickDelete(prod.id)}>
+                                    <FaRegTrashAlt className="m-auto text-gray-500" />
                                 </button>                                
                             </td>
                         </tr>       
