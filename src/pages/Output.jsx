@@ -3,6 +3,8 @@ import { useState } from "react";
 export function Output() {
     const [ idProduct, setIdProduct ] = useState(0);
     const [ quantity, setQuatity ] = useState(0);
+    const [ error, setError ] = useState("hidden"); 
+
 
     const handleClickOutput = async (ev) => {
         ev.preventDefault();
@@ -17,9 +19,10 @@ export function Output() {
             })
 
             if(!response.ok) {
+                setError("block")
                 throw new Error("Product update error");
             }
-            
+            setError("hidden")
             console.log("Updated product!")
         } catch (error) {
             console.error(error)
@@ -31,8 +34,11 @@ export function Output() {
 
     return (
         <section className="bg-slate-600/20 backdrop-blur-sm w-3/12 h-auto mx-auto p-5 text-center rounded-xl">
-            <h2 className="text-3xl uppercase font-bold text-slate-50">saida</h2>
-            <div className="text-center mt-12">
+            <h2 className="text-3xl uppercase font-bold text-slate-50 mb-5">saida</h2>
+            <div className={`border-solid border-2 py-1 border-red-500 ${error}`}>
+                <p className="uppercase text-red-500 font-base">id não encontrado!</p>
+            </div>
+            <div className="text-center">
                 <form onSubmit={handleClickOutput}>   
                     <div className="text-left space-y-3 mb-5">
                         <label htmlFor="idProduct"className="text-xl uppercase font-medium text-slate-50">id (produto)</label>

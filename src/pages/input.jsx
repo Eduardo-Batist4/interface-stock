@@ -3,6 +3,7 @@ import { useState } from "react";
 export function Input() {
     const [ idProduct, setIdProduct ] = useState(0);
     const [ quantity, setQuatity ] = useState(0);
+    const [ error, setError ] = useState("hidden") 
 
     const handleClickInput = async (ev) => {
         ev.preventDefault();
@@ -16,10 +17,11 @@ export function Input() {
             })
 
             if(!response.ok) {
+                setError("block")
                 throw new Error("Product update error");
             }
-            
-            return response.status(201).json({message: "Updated product!"})
+            setError("hidden")
+            console.log("Input update successfully done")
         } catch (error) {
             console.error(error)
         }
@@ -30,8 +32,11 @@ export function Input() {
 
     return (
         <section className="bg-slate-600/20 backdrop-blur-sm w-3/12 h-auto mx-auto p-5 text-center rounded-xl">
-            <h2 className="text-3xl uppercase font-bold text-slate-50">entrada</h2>
-            <div className="text-center mt-12">
+            <h2 className="text-3xl uppercase font-bold text-slate-50 mb-5">entrada</h2>
+            <div className={`border-solid border-2 py-1 border-red-500 ${error}`}>
+                <p className="uppercase text-red-500 font-base">id não encontrado!</p>
+            </div>
+            <div className="text-center">
                 <form onSubmit={handleClickInput}>   
                     <div className="text-left space-y-3 mb-5">
                         <label htmlFor="idProduct"className="text-xl uppercase font-medium text-slate-50">id (produto)</label>
@@ -51,9 +56,6 @@ export function Input() {
                     </div>
                         <button className="bg-blue-700 w-80 px-8 py-3 rounded-xl text-slate-50 text-xl uppercase font-medium mt-10">enviar</button>
                 </form>
-            </div>
-            <div className="bg-red-300 py-1">
-                <p>ID não encontrado!</p>
             </div>
         </section>
     );
