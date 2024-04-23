@@ -11,17 +11,25 @@ export function Register() {
         "output": 0
     };
 
-    function handleClick(ev) {
+    const handleClick = async (ev) => {
         ev.preventDefault();
         
-        fetch("http://localhost:3001/products", {
-            method: "POST",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify(data)
-        }).then(response => response.json()).catch(error => console.error(error))
+        try {
+            const response = await fetch("http://localhost:3001/products", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
 
+            if(!response.ok) {
+                throw new Error("Request error.");
+            };
+    
+        } catch (error) {
+            console.error(error);
+        }
         setNameProduct("");
         setQuatity("");
     }   

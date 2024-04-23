@@ -4,16 +4,25 @@ export function Input() {
     const [ idProduct, setIdProduct ] = useState(0);
     const [ quantity, setQuatity ] = useState(0);
 
-    function handleClickInput(ev) {
+    const handleClickInput = async (ev) => {
         ev.preventDefault();
+        try {
+            const response = await fetch(`http://localhost:3001/product/${idProduct}`, {
+                method: "PUT",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({"input": quantity})
+            })
 
-        fetch(`http://localhost:3001/product/${idProduct}`, {
-            method: "PUT",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify({"input": quantity})
-        }).then(response => response.json()).catch(error => console.error(error))
+            if(!response.ok) {
+                throw new Error("Product update error");
+            }
+            
+            return response.status(201).json({message: "Updated product!"})
+        } catch (error) {
+            console.error(error)
+        }
 
         setIdProduct("");
         setQuatity("");
@@ -42,6 +51,9 @@ export function Input() {
                     </div>
                         <button className="bg-blue-700 w-80 px-8 py-3 rounded-xl text-slate-50 text-xl uppercase font-medium mt-10">enviar</button>
                 </form>
+            </div>
+            <div className="bg-red-300 py-1">
+                <p>ID não encontrado!</p>
             </div>
         </section>
     );

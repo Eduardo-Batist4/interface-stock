@@ -4,16 +4,26 @@ export function Output() {
     const [ idProduct, setIdProduct ] = useState(0);
     const [ quantity, setQuatity ] = useState(0);
 
-    function handleClickOutput(ev) {
+    const handleClickOutput = async (ev) => {
         ev.preventDefault();
 
-        fetch(`http://localhost:3001/product/${idProduct}`, {
-            method: "PUT",
-            headers: {
-                "Content-type": "application/json"
-            },
-            body: JSON.stringify({"output": quantity})
-        }).then(response => response.json()).catch(error => console.error(error))
+        try {
+            const response = await fetch(`http://localhost:3001/product/${idProduct}`, {
+                method: "PUT",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({"output": quantity})
+            })
+
+            if(!response.ok) {
+                throw new Error("Product update error");
+            }
+            
+            console.log("Updated product!")
+        } catch (error) {
+            console.error(error)
+        }
 
         setIdProduct("");
         setQuatity("");

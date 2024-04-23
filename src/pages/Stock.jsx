@@ -10,10 +10,9 @@ export function Stock() {
       try {
         const response = await fetch("http://localhost:3001/products");
         if (!response.ok) {
-          throw new Error('Erro ao fazer a requisição.');
+          throw new Error('Request error..');
         }
         const data = await response.json();
-        console.log(data);
         setProducts(data);
       } catch (error) {
         console.error('Erro:', error);
