@@ -2,49 +2,19 @@ import { useEffect, useState } from "react"
 // icons
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa6";
+import { balance, deleteProduct, fetchingData, situationProduct } from "../api";
 
 export function Stock() {
     const [ products, setProducts ] = useState([]);
 
-    const fetchingData = async () => {
-      try {
-        const response = await fetch("http://localhost:3001/products");
-        if (!response.ok) {
-          throw new Error('Request error..');
-        }
-        const data = await response.json();
-        setProducts(data);
-      } catch (error) {
-        console.error('Erro:', error);
-      }
-    };
+    const caralho = 
+
     useEffect(() => {
-        fetchingData();
+        fetchingData(setProducts);
     }, []);
-
-    function balance (a, b) {
-        return a - b;
-    }
-
-    function situationProduct (a, b) {
-        return a - b <= 2 ? "comprar" : "ok";
-    }
-
-
     
     const handleClickDelete = async (idProduct) => {
-        try {
-            const response = await fetch(`http://localhost:3001/products/${idProduct}`, {
-                method: "DELETE"
-            })
-            if(!response.ok) {
-                throw new Error("Error deleting product.");
-            }
-            console.log("Product succesfully deleted");
-            fetchingData()
-        } catch (error) {
-            console.error("Error deleting product", error);
-        }
+        deleteProduct(idProduct, setProducts);
     }
 
     return (
@@ -67,7 +37,7 @@ export function Stock() {
                             <td className="w-64 py-4 pl-2">{prod.name}</td>
                             <td className="w-32 py-4 text-center">{prod.input}</td>
                             <td className="w-32 py-4 text-center">{prod.output}</td>
-                            <td className="w-32 py-4 text-center">{balance(prod.input, prod.output)}</td>
+                            <td className="w-32 py-4 text-center">{prod.input - prod.output}</td>
                             <td className="w-32 py-4 text-center">{situationProduct(prod.input, prod.output)}</td>
                             <td className={`w-32 py-4 ${situationProduct(prod.input, prod.output) == "comprar" ? "text-red-700" : "text-lime-500"}`}><FaCircle className="m-auto" /></td>
                             <td>

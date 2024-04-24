@@ -1,44 +1,22 @@
 import { useState } from "react";
+import { sendData } from "../api";
 
 export function Register() {
     const [ nameProduct, setNameProduct ] = useState("");
     const [ quantity, setQuatity ] = useState(0);  
     const [ successRegister, setSuccessRegister ] = useState("hidden")
 
-    const timer = () => {
-        setTimeout(() => {
-            setSuccessRegister("hidden")
-        }, 4000)
-        setSuccessRegister("block")
-    }
-
-
-    // Criar o objeto com os valores calculados
-    let data = {
-        "name": nameProduct,
-        "input": quantity,
-        "output": 0
-    };
-
     const handleClick = async (ev) => {
         ev.preventDefault();
-        
-        try {
-            const response = await fetch("http://localhost:3001/products", {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
 
-            if(!response.ok) {
-                throw new Error("Request error.");
-            };
-            timer()
-        } catch (error) {
-            console.error(error);
-        }
+        // requisição POST
+        sendData(nameProduct, quantity)
+        // aviso de sucesso 
+        setTimeout(() => {
+            setSuccessRegister("hidden")
+        }, 3000)
+        
+        setSuccessRegister("block")
         setNameProduct("");
         setQuatity("");
     }   

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { updateProductOutput } from "../api";
 
 export function Output() {
     const [ idProduct, setIdProduct ] = useState(0);
@@ -8,26 +9,7 @@ export function Output() {
 
     const handleClickOutput = async (ev) => {
         ev.preventDefault();
-
-        try {
-            const response = await fetch(`http://localhost:3001/product/${idProduct}`, {
-                method: "PUT",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify({"output": quantity})
-            })
-
-            if(!response.ok) {
-                setError("block")
-                throw new Error("Product update error");
-            }
-            setError("hidden")
-            console.log("Updated product!")
-        } catch (error) {
-            console.error(error)
-        }
-
+        updateProductOutput(idProduct, quantity, setError);
         setIdProduct("");
         setQuatity("");
     }

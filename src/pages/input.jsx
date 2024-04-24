@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { balance, updateProductInput } from "../api";
 
 export function Input() {
     const [ idProduct, setIdProduct ] = useState(0);
@@ -7,25 +8,7 @@ export function Input() {
 
     const handleClickInput = async (ev) => {
         ev.preventDefault();
-        try {
-            const response = await fetch(`http://localhost:3001/product/${idProduct}`, {
-                method: "PUT",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify({"input": quantity})
-            })
-
-            if(!response.ok) {
-                setError("block")
-                throw new Error("Product update error");
-            }
-            setError("hidden")
-            console.log("Input update successfully done")
-        } catch (error) {
-            console.error(error)
-        }
-
+        updateProductInput(idProduct, quantity, setError);
         setIdProduct("");
         setQuatity("");
     }
