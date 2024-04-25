@@ -7,21 +7,23 @@ export function Input() {
     const [ quantity, setQuatity ] = useState(0);
     const [ error, setError ] = useState("hidden") 
     
-    useEffect(() => { // fazendo requisição para buscar o produto pelo id
-        fetchingData(setProducts)
+    useEffect(() => { 
+        fetchingData(setProducts) // fazendo requisição para buscar o produto pelo id.
     }, [])
     
     const handleClickInput = async (ev) => {
         ev.preventDefault();
 
+        //////////////////////////////////////
         let previousInputQuantity = 0
-        products.filter((ola) => {  // pegando produto pelo id inserido
+        products.filter((ola) => {  // filtrando produto pelo id inserido.
             if(ola.id == idProduct) {
-                previousInputQuantity += ola.input;
+                previousInputQuantity += ola.input; // atribuindo na variavel
             }
         });
         const currentInputQuantity = Number(previousInputQuantity) + Number(quantity) // somando a quantidade anterior com a atual
-
+        //////////////////////////////////////
+        
         updateProductInput(idProduct, currentInputQuantity , setError);
         setIdProduct("");
         setQuatity("");

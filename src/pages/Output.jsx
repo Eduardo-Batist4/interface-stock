@@ -1,15 +1,30 @@
-import { useState } from "react";
-import { updateProductOutput } from "../api";
+import { useEffect, useState } from "react";
+import { fetchingData, updateProductOutput } from "../api";
 
 export function Output() {
+    const [ products, setProducts ] = useState([]);
     const [ idProduct, setIdProduct ] = useState(0);
     const [ quantity, setQuatity ] = useState(0);
     const [ error, setError ] = useState("hidden"); 
 
+    useEffect(() => { 
+        fetchingData(setProducts) // fazendo requisição para buscar o produto pelo id.
+    }, [])
 
     const handleClickOutput = async (ev) => {
         ev.preventDefault();
-        updateProductOutput(idProduct, quantity, setError);
+        
+        //////////////////////////////////////
+        let previousOutputQuantity = 0
+        products.filter((ola) => {  // filtrando produto pelo id inserido.
+            if(ola.id == idProduct) {
+                previousOutputQuantity += ola.output; // atribuindo na variavel
+            }
+        });
+        const currentOutputQuantity = Number(previousOutputQuantity) + Number(quantity) // somando a quantidade anterior com a atual
+        //////////////////////////////////////
+
+        updateProductOutput(idProduct, currentOutputQuantity, setError);
         setIdProduct("");
         setQuatity("");
     }
