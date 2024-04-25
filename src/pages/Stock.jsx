@@ -37,9 +37,9 @@ export function Stock() {
                             <td className="w-32 py-4 text-center">{prod.input - prod.output}</td>
                             <td className="w-32 py-4 text-center">{situationProduct(prod.input, prod.output)}</td>
                             <td className={`w-32 py-4 ${situationProduct(prod.input, prod.output) == "comprar" ? "text-red-700" : "text-lime-500"}`}><FaCircle className="m-auto" /></td>
-                            <td>
-                                <button className="w-full py-5" onClick={() => handleClickDelete(prod.id)}>
-                                    <FaRegTrashAlt className="m-auto text-gray-500" />
+                            <td className="text-center">
+                                <button className="py-5" onClick={() => handleClickDelete(prod.id)}>
+                                    <FaRegTrashAlt className="m-auto text-gray-500 hover:text-red-500" />
                                 </button>                                
                             </td>
                         </tr>       

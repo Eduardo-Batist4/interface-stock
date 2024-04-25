@@ -13,7 +13,7 @@ export function Register() {
         
         setTimeout(() => {
             setSuccessRegister("hidden") // box de aviso (sucesso) 
-        }, 3000)
+        }, 2000)
         setSuccessRegister("block")
         
         setNameProduct(""); // limpando campo
@@ -42,7 +42,7 @@ export function Register() {
                             onChange={(ev) => setQuatity(ev.target.value)}
                             />
                         </div>
-                            <button className="bg-blue-700 w-80 px-8 py-3 rounded-xl text-slate-50 text-xl uppercase font-medium mt-10">cadastrar</button>
+                            <button className="bg-blue-700 hover:bg-blue-600  active:bg-blue-800 w-80 px-8 py-3 rounded-xl text-slate-50 text-xl uppercase font-medium mt-10">cadastrar</button>
                     </form>
                 </div>
             </section>
