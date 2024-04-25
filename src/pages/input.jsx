@@ -26,12 +26,7 @@ export function Input() {
         const currentInputQuantity = Number(previousInputQuantity) + Number(quantity) // somando a quantidade anterior com a atual
         //////////////////////////////////////
 
-        updateProductInput(idProduct, currentInputQuantity , setError);
-
-        setTimeout(() => {
-            setSuccessRegister("hidden") // box de aviso (sucesso) 
-        }, 2000)
-        setSuccessRegister("block") 
+        updateProductInput(idProduct, currentInputQuantity , setError, setSuccessRegister);
 
         setIdProduct(""); // limpando os campo
         setQuatity(""); // limpando os campo

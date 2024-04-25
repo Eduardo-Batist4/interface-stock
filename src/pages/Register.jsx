@@ -9,12 +9,7 @@ export function Register() {
     const handleClick = async (ev) => {
         ev.preventDefault();
 
-        sendData(nameProduct, quantity) // requisição POST
-        
-        setTimeout(() => {
-            setSuccessRegister("hidden") // box de aviso (sucesso) 
-        }, 2000)
-        setSuccessRegister("block")
+        sendData(nameProduct, quantity, setSuccessRegister) // requisição POST
         
         setNameProduct(""); // limpando campo
         setQuatity(""); // limpando campo

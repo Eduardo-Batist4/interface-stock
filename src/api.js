@@ -1,6 +1,6 @@
 
 // Send product (POST)
-export const sendData = async (name, quantity) => {
+export const sendData = async (name, quantity, success) => {
     let data = {
         "name": name,
         "input": quantity,
@@ -19,6 +19,12 @@ export const sendData = async (name, quantity) => {
         if(!response.ok) {
             throw new Error("Request error.");
         };
+
+        setTimeout(() => {
+            success("hidden") // box de aviso (sucesso) 
+        }, 2000)
+        success("block")
+
     } catch (error) {
         console.error(error);
     }
@@ -44,7 +50,7 @@ export function situationProduct (a, b) {
 
 
 // Update product (PUT)
-export const updateProductInput = async (id, quantity, error) => {
+export const updateProductInput = async (id, quantity, error, success) => {
     try {
         const response = await fetch(`http://localhost:3001/product/${id}`, {
             method: "PUT",
@@ -59,13 +65,17 @@ export const updateProductInput = async (id, quantity, error) => {
             throw new Error("Product update error");
         }
         error("hidden")
+        setTimeout(() => {
+            success("hidden") // box de aviso (sucesso) 
+        }, 2000)
+        success("block") 
         console.log("Input update successfully done")
     } catch (error) {
         console.error(error)
     }
 }
 
-export const updateProductOutput = async (id, quantity, error) => {
+export const updateProductOutput = async (id, quantity, error, success) => {
     try {
         const response = await fetch(`http://localhost:3001/product/${id}`, {
             method: "PUT",
@@ -80,6 +90,12 @@ export const updateProductOutput = async (id, quantity, error) => {
             throw new Error("Product update error");
         }
         error("hidden")
+
+        setTimeout(() => {
+            success("hidden") // box de aviso (sucesso) 
+        }, 2000)
+        success("block")
+
         console.log("Updated product!")
     } catch (error) {
         console.error(error)
