@@ -1,14 +1,28 @@
-import { useState } from "react";
-import { balance, updateProductInput } from "../api";
+import { useEffect, useState } from "react";
+import { fetchingData, updateProductInput } from "../api";
 
 export function Input() {
+    const [ products, setProducts ] = useState([]);
     const [ idProduct, setIdProduct ] = useState(0);
     const [ quantity, setQuatity ] = useState(0);
     const [ error, setError ] = useState("hidden") 
-
+    
+    useEffect(() => { // fazendo requisição para buscar o produto pelo id
+        fetchingData(setProducts)
+    }, [])
+    
     const handleClickInput = async (ev) => {
         ev.preventDefault();
-        updateProductInput(idProduct, quantity, setError);
+
+        let previousInputQuantity = 0
+        products.filter((ola) => {  // pegando produto pelo id inserido
+            if(ola.id == idProduct) {
+                previousInputQuantity += ola.input;
+            }
+        });
+        const currentInputQuantity = Number(previousInputQuantity) + Number(quantity) // somando a quantidade anterior com a atual
+
+        updateProductInput(idProduct, currentInputQuantity , setError);
         setIdProduct("");
         setQuatity("");
     }

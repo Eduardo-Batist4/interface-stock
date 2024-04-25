@@ -2,13 +2,10 @@ import { useEffect, useState } from "react"
 // icons
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaCircle } from "react-icons/fa6";
-import { balance, deleteProduct, fetchingData, situationProduct } from "../api";
+import { deleteProduct, fetchingData, situationProduct } from "../api";
 
 export function Stock() {
     const [ products, setProducts ] = useState([]);
-
-    const caralho = 
-
     useEffect(() => {
         fetchingData(setProducts);
     }, []);
