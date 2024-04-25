@@ -18,7 +18,7 @@ export function Stock() {
         <section className="w-3/5 p-4 m-auto h-auto">
             <table className="table-auto w-full">
                 <tbody>
-                    <tr className="text-white border-solid border-y-2 border-slate-50 text-left">
+                    <tr className="text-white capitalize border-solid border-y-2 border-slate-50 text-left">
                         <th className="py-4 text-center border-solid border-x-2 border-slate-50">id</th>
                         <th className="py-4 pl-2 border-solid border-x-2 border-slate-50">produto</th>
                         <th className="py-4 text-center border-solid border-x-2  border-slate-50">entrada</th>
