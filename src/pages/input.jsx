@@ -30,7 +30,7 @@ export function Input() {
 
         setTimeout(() => {
             setSuccessRegister("hidden") // box de aviso (sucesso) 
-        }, 3000)
+        }, 2000)
         setSuccessRegister("block") 
 
         setIdProduct(""); // limpando os campo
