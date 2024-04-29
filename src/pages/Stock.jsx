@@ -15,18 +15,18 @@ export function Stock() {
     }
 
     return (
-        <section className="w-3/5 p-4 m-auto h-auto">
+        <section className="w-full m-auto h-auto p-1 overflow-x-auto">
             <table className="table-auto w-full">
                 <tbody>
                     <tr className="text-white capitalize border-solid border-y-2 border-slate-50 text-left">
-                        <th className="py-4 text-center border-solid border-x-2 border-slate-50">id</th>
-                        <th className="py-4 pl-2 border-solid border-x-2 border-slate-50">produto</th>
-                        <th className="py-4 text-center border-solid border-x-2  border-slate-50">entrada</th>
-                        <th className="py-4 text-center border-solid border-x-2 border-slate-50">saida</th>
-                        <th className="py-4 text-center border-solid border-x-2 border-slate-50">saldo</th>
-                        <th className="py-4 text-center border-solid border-x-2 border-slate-50">situação</th>
-                        <th className="py-4 text-center border-solid border-x-2 border-slate-50">alarme</th>
-                        <th className="w-20 py-4 text-center border-solid border-x-2 border-slate-50">delete</th>
+                        <th className="p-4 text-center border-solid border-x-2 border-slate-50">id</th>
+                        <th className="p-4 pl-2 border-solid border-x-2 border-slate-50">produto</th>
+                        <th className="p-4 text-center border-solid border-x-2  border-slate-50">entrada</th>
+                        <th className="p-4 text-center border-solid border-x-2 border-slate-50">saida</th>
+                        <th className="p-4 text-center border-solid border-x-2 border-slate-50">saldo</th>
+                        <th className="p-4 text-center border-solid border-x-2 border-slate-50">situação</th>
+                        <th className="p-4 text-center border-solid border-x-2 border-slate-50">alarme</th>
+                        <th className="w-20 p-4 text-center border-solid border-x-2 border-slate-50">delete</th>
                     </tr>   
                     {products.map((prod) => (
                         <tr key={prod.id} className="text-slate-50 border-solid border-y-2 border-slate-50/5">

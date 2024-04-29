@@ -16,7 +16,7 @@ export function Input() {
     const handleClickInput = async (ev) => {
         ev.preventDefault();
 
-        //////////////////////////////////////
+        // -------------------------------------------
         let previousInputQuantity = 0
         products.filter((proId) => {  // filtrando produto pelo id inserido.
             if(proId.id == idProduct) {
@@ -24,7 +24,8 @@ export function Input() {
             }
         });
         const currentInputQuantity = Number(previousInputQuantity) + Number(quantity) // somando a quantidade anterior com a atual
-        //////////////////////////////////////
+        // -------------------------------------------
+
 
         updateProductInput(idProduct, currentInputQuantity , setError, setSuccessRegister);
 
@@ -34,16 +35,16 @@ export function Input() {
 
     return (
         <>
-            <section className="bg-slate-600/20 backdrop-blur-sm w-3/12 h-auto mx-auto p-5 text-center rounded-xl">
-                <h2 className="text-3xl uppercase font-bold text-slate-50 mb-5">entrada</h2>
-                <div className={`border-solid border-2 py-1 border-red-500 ${error}`}>
-                    <p className="uppercase text-red-500 font-base">id não encontrado!</p>
+            <section className="bg-slate-600/20 backdrop-blur-sm w-11/12 h-auto mx-auto p-5 text-center rounded-xl">
+                <h2 className="text-3xl uppercase font-bold text-slate-50">entrada</h2>
+                <div className={`border-solid border-2 py-1 border-red-500 m-5 ${error}`}>
+                    <p className="uppercase text-red-500 font-base text-sm">id não encontrado!</p>
                 </div>
                 <div className="text-center">
                     <form onSubmit={handleClickInput}>   
                         <div className="text-left space-y-3 mb-5">
                             <label htmlFor="idProduct"className="text-xl uppercase font-medium text-slate-50">id (produto)</label>
-                            <input type="number" name="idProduct" 
+                            <input type="number" name="idProduct" min={1}
                             className="w-full font-medium outline-none px-4 py-3 rounded-lg"
                             value={idProduct}
                             onChange={(ev) => setIdProduct(ev.target.value)}
@@ -51,7 +52,7 @@ export function Input() {
                         </div>
                         <div className="text-left space-y-3">
                             <label htmlFor="quantity" className="text-xl uppercase font-medium text-slate-50">quantidade</label>
-                            <input type="number" name="quantity" 
+                            <input type="number" name="quantity" min={1}
                             className="w-full font-medium outline-none px-4 py-3 rounded-lg"
                             value={quantity}
                             onChange={(ev) => setQuatity(ev.target.value)}
@@ -61,8 +62,8 @@ export function Input() {
                     </form>
                 </div>
             </section>
-            <div className={`bg-lime-400/10 border-solid border-2 border-lime-500/60 w-80 p-1 text-center absolute bottom-10 right-10 ${successRegister}`}>
-                <p className="text-slate-50">Produto atualizado com Sucesso!</p>
+            <div className={`bg-lime-400/10 border-solid border-2 border-lime-500/60 w-50 p-1 text-center absolute bottom-10 right-5 ${successRegister}`}>
+                <p className="text-slate-50 text-sm">Produto atualizado com Sucesso!</p>
             </div>
         </>
     );

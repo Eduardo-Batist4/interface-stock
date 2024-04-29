@@ -17,7 +17,7 @@ export function Register() {
 
     return (
         <>
-            <section className="static bg-slate-600/20 backdrop-blur-sm w-3/12 h-auto mx-auto p-5 text-center rounded-xl">
+            <section className="static bg-slate-600/20 backdrop-blur-sm w-11/12 h-auto mx-auto p-5 text-center rounded-xl">
                 <h2 className="text-3xl uppercase font-bold text-slate-50">cadastro</h2>
                 <div className="text-center mt-10">
                     <form onSubmit={handleClick}>   
@@ -31,7 +31,7 @@ export function Register() {
                         </div>
                         <div className="text-left space-y-3">
                             <label htmlFor="quantity" className="text-xl uppercase font-medium text-slate-50">quantidade</label>
-                            <input type="number" name="quantity" 
+                            <input type="number" name="quantity" min={1}
                             className="w-full font-medium outline-none px-4 py-3 rounded-lg"
                             value={quantity}
                             onChange={(ev) => setQuatity(ev.target.value)}
@@ -41,8 +41,8 @@ export function Register() {
                     </form>
                 </div>
             </section>
-            <div className={`bg-lime-400/10 border-solid border-2 border-lime-500/60 w-80 p-1 text-center absolute bottom-10 right-10 ${successRegister}`}>
-                <p className="text-slate-50">Produto Cadastrado com Sucesso!</p>
+            <div className={`bg-lime-400/10 border-solid border-2 border-lime-500/60 w-50 p-1 text-center absolute bottom-10 right-5 ${successRegister}`}>
+                <p className="text-slate-50 text-sm">Produto Cadastrado com Sucesso!</p>
             </div>
         </>
     )
