@@ -36,14 +36,14 @@ export function Input() {
     return (
         <>
             <section className="bg-slate-600/20 backdrop-blur-sm w-11/12 h-auto mx-auto p-5 text-center rounded-xl">
-                <h2 className="text-3xl uppercase font-bold text-slate-50">entrada</h2>
-                <div className={`border-solid border-2 py-1 border-red-500 m-5 ${error}`}>
+                <h2 className="text-3xl uppercase font-bold text-slate-50 mb-5">entrada</h2>
+                <div className={`border-solid border-2 py-1 border-red-500 mb-5 ${error}`}>
                     <p className="uppercase text-red-500 font-base text-sm">id não encontrado!</p>
                 </div>
                 <div className="text-center">
                     <form onSubmit={handleClickInput}>   
                         <div className="text-left space-y-3 mb-5">
-                            <label htmlFor="idProduct"className="text-xl uppercase font-medium text-slate-50">id (produto)</label>
+                            <label htmlFor="idProduct"className="text-base uppercase font-medium text-slate-50">id (produto)</label>
                             <input type="number" name="idProduct" min={1}
                             className="w-full font-medium outline-none px-4 py-3 rounded-lg"
                             value={idProduct}
@@ -51,14 +51,14 @@ export function Input() {
                             />                        
                         </div>
                         <div className="text-left space-y-3">
-                            <label htmlFor="quantity" className="text-xl uppercase font-medium text-slate-50">quantidade</label>
+                            <label htmlFor="quantity" className="text-base uppercase font-medium text-slate-50">quantidade</label>
                             <input type="number" name="quantity" min={1}
                             className="w-full font-medium outline-none px-4 py-3 rounded-lg"
                             value={quantity}
                             onChange={(ev) => setQuatity(ev.target.value)}
                             />
                         </div>
-                            <button className="bg-blue-700 w-80 px-8 py-3 rounded-xl text-slate-50 text-xl uppercase font-medium mt-10">enviar</button>
+                            <button className="bg-blue-700 w-80 px-8 py-3 rounded-xl text-slate-50 text-lg uppercase font-medium mt-10">enviar</button>
                     </form>
                 </div>
             </section>

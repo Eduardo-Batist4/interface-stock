@@ -3,7 +3,7 @@ import Button from "./components/Button"
 
 function App() {
   return (
-    <main className="bg-zinc-900 w-full h-screen font-abc">
+    <main className="bg-zinc-900 w-full h-auto pb-10 font-abc">
       <header className="w-full h-auto p-2 text-center items-center mb-20">
           <Link>
             <h2 className="text-4xl text-slate-50 mb-10 font-bold uppercase">stock</h2>

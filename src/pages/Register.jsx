@@ -19,10 +19,10 @@ export function Register() {
         <>
             <section className="static bg-slate-600/20 backdrop-blur-sm w-11/12 h-auto mx-auto p-5 text-center rounded-xl">
                 <h2 className="text-3xl uppercase font-bold text-slate-50">cadastro</h2>
-                <div className="text-center mt-10">
+                <div className="text-center mt-5">
                     <form onSubmit={handleClick}>   
                         <div className="text-left space-y-3 mb-5">
-                            <label htmlFor="name"className="text-xl uppercase font-medium text-slate-50">nome</label>
+                            <label htmlFor="name"className="text-base uppercase font-medium text-slate-50">nome</label>
                             <input type="text" name="name" 
                             className="w-full font-medium outline-none px-4 py-3 rounded-lg"
                             value={nameProduct}
@@ -30,14 +30,14 @@ export function Register() {
                             />                        
                         </div>
                         <div className="text-left space-y-3">
-                            <label htmlFor="quantity" className="text-xl uppercase font-medium text-slate-50">quantidade</label>
+                            <label htmlFor="quantity" className="text-base uppercase font-medium text-slate-50">quantidade</label>
                             <input type="number" name="quantity" min={1}
                             className="w-full font-medium outline-none px-4 py-3 rounded-lg"
                             value={quantity}
                             onChange={(ev) => setQuatity(ev.target.value)}
                             />
                         </div>
-                            <button className="bg-blue-700 hover:bg-blue-600  active:bg-blue-800 w-80 px-8 py-3 rounded-xl text-slate-50 text-xl uppercase font-medium mt-10">cadastrar</button>
+                            <button className="bg-blue-700 hover:bg-blue-600  active:bg-blue-800 w-80 px-8 py-3 rounded-xl text-slate-50 text-lg uppercase font-medium mt-10">cadastrar</button>
                     </form>
                 </div>
             </section>
