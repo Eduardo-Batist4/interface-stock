@@ -16,7 +16,7 @@ export function Register() {
     }   
 
     return (
-        <>
+        <div className="w-full h-screen flex items-center">
             <section className="static bg-slate-600/20 backdrop-blur-sm w-11/12 h-auto mx-auto p-5 text-center rounded-xl md:w-6/12">
                 <h2 className="text-3xl uppercase font-bold text-slate-50">cadastro</h2>
                 <div className="text-center mt-5">
@@ -41,9 +41,9 @@ export function Register() {
                     </form>
                 </div>
             </section>
-            <div className={`bg-lime-400/10 border-solid border-2 border-lime-500/60 w-50 p-1 text-center absolute top-5 right-5 ${successRegister}`}>
+            <div className={`bg-lime-400/10 border-solid border-2 border-lime-500/60 w-50 p-1 text-center fixed top-5 right-5 md:absolute md:bottom-5 md:top-auto md:right-5 ${successRegister}`}>
                 <p className="text-slate-50 text-sm">Produto Cadastrado com Sucesso!</p>
             </div>
-        </>
+        </div>
     )
 }   

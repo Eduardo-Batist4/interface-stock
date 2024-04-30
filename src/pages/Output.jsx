@@ -33,7 +33,7 @@ export function Output() {
     }
 
     return (
-        <>
+        <div className="w-full min-h-screen flex items-center">
             <section className="bg-slate-600/20 backdrop-blur-sm w-11/12 h-auto mx-auto p-5 text-center rounded-xl md:w-6/12">
                 <h2 className="text-3xl uppercase font-bold text-slate-50 mb-5">saida</h2>
                 <div className={`border-solid border-2 py-1 border-red-500 mb-5 ${error}`}>
@@ -64,6 +64,6 @@ export function Output() {
             <div className={`bg-lime-400/10 border-solid border-2 border-lime-500/60 w-50 p-1 text-center fixed top-5 right-5 md:absolute md:bottom-5 md:top-auto md:right-5 ${successRegister}`}>
                 <p className="text-slate-50 text-sm">Produto atualizado com Sucesso!</p>
             </div>
-        </>
+        </div>
     );
 }
