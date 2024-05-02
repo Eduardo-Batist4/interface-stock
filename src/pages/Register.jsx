@@ -16,8 +16,8 @@ export function Register() {
     }   
 
     return (
-        <div className="w-full h-screen flex items-center">
-            <section className="static bg-slate-600/20 backdrop-blur-sm w-11/12 h-auto mx-auto p-5 text-center rounded-xl md:w-6/12">
+        <div className="w-full h-screen flex items-start pt-32">
+            <section className="static bg-slate-600/20 backdrop-blur-sm w-11/12 h-auto mx-auto p-5 text-center rounded-xl md:w-6/12 lg:w-2/5">
                 <h2 className="text-3xl uppercase font-bold text-slate-50">cadastro</h2>
                 <div className="text-center mt-5">
                     <form onSubmit={handleClick}>   

@@ -34,8 +34,8 @@ export function Input() {
     }
 
     return (
-        <div className="w-full min-h-screen flex items-center">
-            <section className="bg-slate-600/20 backdrop-blur-sm w-11/12 h-auto mx-auto p-5 text-center rounded-xl md:w-6/12">
+        <div className="w-full min-h-screen flex items-start pt-32">
+            <section className="bg-slate-600/20 backdrop-blur-sm w-11/12 h-auto mx-auto p-5 text-center rounded-xl md:w-6/12 lg:w-2/5">
                 <h2 className="text-3xl uppercase font-bold text-slate-50 mb-5">entrada</h2>
                 <div className={`border-solid border-2 py-1 border-red-500 mb-5 ${error}`}>
                     <p className="uppercase text-red-500 font-base text-sm">id não encontrado!</p>

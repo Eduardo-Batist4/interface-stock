@@ -16,7 +16,7 @@ function App() {
           </div>
       </header>
       <Outlet />
-      <footer className="w-full text-center">
+      <footer className="w-full text-center h:1/6">
           <p className="text-slate-50 text-sm">&copy; Todos os direitos reservados para Eduardo Batista</p>
       </footer>
     </main>
